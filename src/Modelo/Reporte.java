@@ -1,14 +1,34 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Modelo;
 
-/**
- *
- * @author Jose Manuel Patron
- */
+import java.util.ArrayList;
+
 public class Reporte {
-    int mauroesputo;
+    private String Tipo;
+    private ArrayList<String> ListaCochesRentados;
+    private Double TotalGanancias;
+
+    public String getTipo() {
+        return Tipo;
+    }
+
+    public void setTipo(String Tipo) {
+        this.Tipo = Tipo;
+    }
+
+    public ArrayList<String> getListaCochesRentados() {
+        return ListaCochesRentados;
+    }
+
+    public void setListaCochesRentados(ArrayList<String> ListaCochesRentados) {
+        this.ListaCochesRentados = ListaCochesRentados;
+    }
+
+    public Double getTotalGanancias() {
+        return TotalGanancias;
+    }
+
+    public void setTotalGanancias(Double TotalGanancias) {
+        this.TotalGanancias = TotalGanancias;
+    }
+    
 }
