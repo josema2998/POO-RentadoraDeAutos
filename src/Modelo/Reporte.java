@@ -10,5 +10,5 @@ package Modelo;
  * @author Jose Manuel Patron
  */
 public class Reporte {
-    
+    int mauroesputo;
 }
