@@ -24,9 +24,9 @@ public class MainTest {
         String nombre= "versa";
         Automovil auto = new Automovil(nombre,"yxk-123",modelo,4,true,precio);
         DAOCoches dao = new DAOCoches();
-        dao.agregar(auto);
-        String condicion = " placa_coche = placa_coche" ;
-//        dao.eliminar(condicion);
+//        dao.agregar(auto);
+        String condicion = " placa_coche =" + "'yxk-123'" ;
+       dao.eliminar(condicion);
     }
     
 }
