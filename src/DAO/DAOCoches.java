@@ -16,10 +16,10 @@ public class DAOCoches extends DAOGeneral<Automovil>{
         int numFilas = 0;
         Connection con = getConeccion();
 
-        String orden = "INSERT INTO coches (id_coches, nombre_coche, placa_coche, modelo_coche, num_puertas, estado_coche, precio_dia )"+
-                "VALUES ("+ e.getId()+ ",'" + e.getNombre()+ "','" + 
-                e.getPlaca().toString() + "',"+ e.getModelo()+ "','"+ e.getPuertas()+ "','"+ e.isDisponibilidad()+ "','"+ e.getPrecio()+")";
-
+        String orden = "INSERT INTO coches (nombre_coches, placa_coche, modelo_coche, num_puertas, estado_coche, precio_dia )"+
+                "VALUES ("+"'"+ e.getNombre()+ "'"+",'" + e.getPlaca().toString() + "','"+
+                e.getModelo()+ "','"+ e.getPuertas()+ "','"+ e.getDisponibilidad()+ "',"+ e.getPrecio()+")";
+        System.out.println(orden);
         Statement sentencia = con.createStatement();
         numFilas = sentencia.executeUpdate(orden);
         sentencia.close();
@@ -49,7 +49,7 @@ public class DAOCoches extends DAOGeneral<Automovil>{
                 "placa_coche= " + e.getPlaca() + "',"+
                 " modelo_coche = "+ e.getModelo()+ "',"+
                 " num_puertas= " + e.getPuertas()+"',"+
-                " estado_coche= "+ e.isDisponibilidad()+"',"+
+                " estado_coche= "+ e.getDisponibilidad()+"',"+
                 " precio_dia= "+ e.getPrecio()+
                 " WHERE "+condicion;
 
@@ -69,7 +69,7 @@ public class DAOCoches extends DAOGeneral<Automovil>{
         Statement sentencia = con.createStatement();
         ResultSet rs = sentencia.executeQuery( orden );
         while (rs.next()) {
-            e = new Automovil(rs.getInt("id_coches"), rs.getString("nombre_coche"),rs.getString("placa_cohe"),rs.getInt("modelo_coche"),
+            e = new Automovil(rs.getString("nombre_coches"),rs.getString("placa_cohe"),rs.getInt("modelo_coche"),
             rs.getInt("num_puertas"),rs.getBoolean("estado_coche"),rs.getDouble("precio_dia"));
             lista.add( e );
         }
