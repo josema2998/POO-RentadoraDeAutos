@@ -10,7 +10,7 @@ public abstract class DAOGeneral<T> {
     private String host="localhost:3306";
     private String bd="rentadora_autos";
     private String login="root";
-    private String password="root";
+    private String password="";
     private boolean cargadoDriver;
 
     public DAOGeneral() {
