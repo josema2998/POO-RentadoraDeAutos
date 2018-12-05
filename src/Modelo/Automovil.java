@@ -14,10 +14,9 @@ public class Automovil {
     private String Nombre;
     private String Marca;
     private String Placa;
-    private String Tipo;
-    private int Modelo;
-    private int Puertas;
-    private boolean Disponibilidad;
+    private String Modelo;
+    private String Puertas;
+    private int Disponibilidad;
     private double Precio;
 
     public String getNombre() {
@@ -32,20 +31,21 @@ public class Automovil {
         return Placa;
     }
 
-    public String getTipo() {
-        return Tipo;
-    }
 
-    public int getModelo() {
+    public String getModelo() {
         return Modelo;
     }
 
-    public int getPuertas() {
+    public String getPuertas() {
         return Puertas;
     }
 
-    public boolean isDisponibilidad() {
-        return Disponibilidad;
+    public boolean getDisponibilidad() {
+        if(Disponibilidad == 1){
+        return true;
+        }else{
+         return false;
+        }
     }
 
     public double getPrecio() {
@@ -64,25 +64,41 @@ public class Automovil {
         this.Placa = Placa;
     }
 
-    public void setTipo(String Tipo) {
-        this.Tipo = Tipo;
-    }
 
-    public void setModelo(int Modelo) {
+    public void setModelo(String Modelo) {
         this.Modelo = Modelo;
     }
 
-    public void setPuertas(int Puertas) {
+    public void setPuertas(String Puertas) {
         this.Puertas = Puertas;
     }
 
     public void setDisponibilidad(boolean Disponibilidad) {
-        this.Disponibilidad = Disponibilidad;
+        if(Disponibilidad == true){
+        this.Disponibilidad = 1;
+        }else{
+        this.Disponibilidad = 0;
+        }
     }
 
     public void setPrecio(double Precio) {
         this.Precio = Precio;
     }
     
+    public Automovil(){
+    }
+    
+    public Automovil( String nombre,String placa, String modelo, String puertas, boolean estado, double precio){
+        this.Nombre=nombre;
+        this.Placa=placa;
+        this.Modelo=modelo;
+        this.Puertas=puertas;
+        if(estado == true){
+        this.Disponibilidad = 1;
+        }else{
+        this.Disponibilidad = 0;
+        }
+        this.Precio=precio;
+    }
     
 }

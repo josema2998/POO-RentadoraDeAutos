@@ -2,15 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group/>
-=======
         <group>
+
             <file>file:/C:/Users/arman/Desktop/Proyecto_Progra/POO-RentadoraDeAutos/src/Modelo/Reporte.java</file>
             <file>file:/C:/Users/arman/Desktop/Proyecto_Progra/POO-RentadoraDeAutos/src/vista/VistaPrincipal.java</file>
             <file>file:/C:/Users/arman/Desktop/Proyecto_Progra/POO-RentadoraDeAutos/src/vista/Login.java</file>
             <file>file:/C:/Users/arman/Desktop/Proyecto_Progra/POO-RentadoraDeAutos/src/Modelo/Automovil.java</file>
+
         </group>
->>>>>>> 2e19b0694a8e1371b291c1c89ca9b6f329dbc7cb
     </open-files>
 </project-private>
