@@ -34,14 +34,13 @@ public class MainTest {
 
         Login vistaLogin = new Login();
         TablaAutos vistaAutos = new TablaAutos();
-        VistaConfirmacion vistaConfirmacion = new VistaConfirmacion();
         VistaPrincipal vistaPrincipal = new VistaPrincipal();
         Automovil automovilModelo = new Automovil();
         Reporte reporteModelo = new Reporte();
         VistaAgregar vistaAgregar = new VistaAgregar();
         
-        ControlRentradora control = new ControlRentradora(vistaLogin,vistaAutos,vistaConfirmacion,vistaPrincipal,automovilModelo,reporteModelo,vistaAgregar);
-        vistaLogin.setVisible(true);
+        ControlRentradora control = new ControlRentradora(vistaLogin,vistaAutos,vistaPrincipal,automovilModelo,reporteModelo,vistaAgregar);
+        vistaPrincipal.setVisible(true);
     
     }
     

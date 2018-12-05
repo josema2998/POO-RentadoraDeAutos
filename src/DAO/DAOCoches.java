@@ -17,8 +17,8 @@ public class DAOCoches extends DAOGeneral<Automovil>{
         Connection con = getConeccion();
 
         String orden = "INSERT INTO coches (nombre_coches, placa_coche, modelo_coche, num_puertas, estado_coche, precio_dia )"+
-                "VALUES ("+"'"+ e.getNombre()+ "'"+",'" + e.getPlaca().toString() + "','"+
-                e.getModelo()+ "','"+ e.getPuertas()+ "','"+ e.getDisponibilidad()+ "',"+ e.getPrecio()+")";
+                "VALUES ("+"'"+ e.getNombre()+ "'"+",'" + e.getPlaca() + "','"+
+                e.getModelo()+ "','"+ e.getPuertas()+ "','"+ 1+ "',"+ e.getPrecio()+")";
         System.out.println(orden);
         Statement sentencia = con.createStatement();
         numFilas = sentencia.executeUpdate(orden);
@@ -45,12 +45,7 @@ public class DAOCoches extends DAOGeneral<Automovil>{
         Connection con = getConeccion();
 
         String orden = "UPDATE coches SET " +
-                " nombre_coches="+e.getNombre()+"',"+
-                "placa_coche= " + e.getPlaca() + "',"+
-                " modelo_coche = "+ e.getModelo()+ "',"+
-                " num_puertas= " + e.getPuertas()+"',"+
-                " estado_coche= "+ e.getDisponibilidad()+"',"+
-                " precio_dia= "+ e.getPrecio()+
+                " estado_coche= "+ e.getDisponibilidad()+
                 " WHERE "+condicion;
 
         Statement sentencia = con.createStatement();
@@ -64,13 +59,13 @@ public class DAOCoches extends DAOGeneral<Automovil>{
         ArrayList<Automovil> lista = new ArrayList<Automovil>();
         Automovil e;
         Connection con = getConeccion();
-        String orden = "SELECT * FROM Clientes " +
+        String orden = "SELECT * FROM Coches " +
                 (condicion==null || condicion.length()==0 ? "":"WHERE " + condicion);
         Statement sentencia = con.createStatement();
         ResultSet rs = sentencia.executeQuery( orden );
         while (rs.next()) {
-            e = new Automovil(rs.getString("nombre_coches"),rs.getString("placa_cohe"),rs.getInt("modelo_coche"),
-            rs.getInt("num_puertas"),rs.getBoolean("estado_coche"),rs.getDouble("precio_dia"));
+            e = new Automovil(rs.getString("nombre_coches"),rs.getString("placa_coche"),rs.getString("modelo_coche"),
+            rs.getString("num_puertas"),rs.getBoolean("estado_coche"),rs.getDouble("precio_dia"));
             lista.add( e );
         }
         sentencia.close();

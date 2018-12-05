@@ -6,6 +6,8 @@
 package vista;
 
 import javax.swing.JButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
@@ -33,11 +35,14 @@ public class TablaAutos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        TablaAutos = new javax.swing.JTable();
         BotonRentaAuto = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        TextoRentar = new javax.swing.JTextField();
         BotonEliminar = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
+        TextoEliminar = new javax.swing.JTextField();
+        BotonRegresar1 = new javax.swing.JButton();
+        textoDevolver = new javax.swing.JTextField();
+        devolver = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -54,8 +59,38 @@ public class TablaAutos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        TablaAutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
                 {null, null, null, null, null, null}
             },
             new String [] {
@@ -70,59 +105,82 @@ public class TablaAutos extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jTable2.addContainerListener(new java.awt.event.ContainerAdapter() {
+        TablaAutos.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
-                jTable2ComponentAdded(evt);
+                TablaAutosComponentAdded(evt);
             }
         });
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(TablaAutos);
 
         BotonRentaAuto.setText("Rentar");
 
         BotonEliminar.setText("Eliminar");
+
+        BotonRegresar1.setText("REGRESAR");
+        BotonRegresar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonRegresar1ActionPerformed(evt);
+            }
+        });
+
+        devolver.setText("Devolver");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BotonRentaAuto)
-                            .addComponent(BotonEliminar))
-                        .addGap(103, 103, 103)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                            .addComponent(jTextField1)))
+                        .addComponent(BotonEliminar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TextoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BotonRegresar1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(43, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(BotonRentaAuto)
+                        .addGap(18, 18, 18)
+                        .addComponent(TextoRentar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addComponent(devolver)
+                        .addGap(30, 30, 30)
+                        .addComponent(textoDevolver, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonRentaAuto)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TextoRentar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textoDevolver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(devolver))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonEliminar)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TextoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotonRegresar1))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTable2ComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jTable2ComponentAdded
+    private void TablaAutosComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_TablaAutosComponentAdded
+
+    }//GEN-LAST:event_TablaAutosComponentAdded
+
+    private void BotonRegresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegresar1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTable2ComponentAdded
+    }//GEN-LAST:event_BotonRegresar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,6 +218,61 @@ public class TablaAutos extends javax.swing.JFrame {
         });
     }
 
+    public JButton getBotonRegresar1() {
+        return BotonRegresar1;
+    }
+
+    public void setBotonRegresar1(JButton BotonRegresar1) {
+        this.BotonRegresar1 = BotonRegresar1;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JScrollPane getjScrollPane2() {
+        return jScrollPane2;
+    }
+
+    public void setjScrollPane2(JScrollPane jScrollPane2) {
+        this.jScrollPane2 = jScrollPane2;
+    }
+
+    public JTable getjTable1() {
+        return jTable1;
+    }
+
+    public void setjTable1(JTable jTable1) {
+        this.jTable1 = jTable1;
+    }
+
+    public JTextField getTextoEliminar() {
+        return TextoEliminar;
+    }
+
+   
+
+    public JTextField getTextoRentar() {
+        return TextoRentar;
+    }
+
+    public JTable getTablaAutos() {
+        
+
+        return TablaAutos;
+    }
+
+    public void setTablaAutos(JTable TablaAutos) {
+        this.TablaAutos = TablaAutos;
+        
+    }
+
+  
+
     public JButton getBotonEliminar() {
         return BotonEliminar;
     }
@@ -169,29 +282,49 @@ public class TablaAutos extends javax.swing.JFrame {
     }
 
     public JTextField getjTextField1() {
-        return jTextField1;
+        return TextoRentar;
     }
 
     public JTextField getjTextField2() {
-        return jTextField2;
+        return TextoEliminar;
     }
 
     public void setjTextField1(JTextField jTextField1) {
-        this.jTextField1 = jTextField1;
+        this.TextoRentar = jTextField1;
     }
 
     public void setjTextField2(JTextField jTextField2) {
-        this.jTextField2 = jTextField2;
+        this.TextoEliminar = jTextField2;
     }
+
+    public JButton getDevolver() {
+        return devolver;
+    }
+
+    public void setDevolver(JButton devolver) {
+        this.devolver = devolver;
+    }
+
+    public JTextField getTextoDevolver() {
+        return textoDevolver;
+    }
+
+    public void setTextoDevolver(JTextField textoDevolver) {
+        this.textoDevolver = textoDevolver;
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonEliminar;
+    private javax.swing.JButton BotonRegresar1;
     private javax.swing.JButton BotonRentaAuto;
+    private javax.swing.JTable TablaAutos;
+    private javax.swing.JTextField TextoEliminar;
+    private javax.swing.JTextField TextoRentar;
+    private javax.swing.JButton devolver;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField textoDevolver;
     // End of variables declaration//GEN-END:variables
 }

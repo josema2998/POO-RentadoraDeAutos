@@ -7,6 +7,8 @@ package vista;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
@@ -37,6 +39,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         Contraseña = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        BotonRegresar3 = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -62,6 +65,13 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        BotonRegresar3.setText("REGRESAR");
+        BotonRegresar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonRegresar3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -76,6 +86,10 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(96, 96, 96))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(BotonRegresar3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,7 +100,9 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addComponent(BotonRegresar3)
+                .addContainerGap())
         );
 
         pack();
@@ -99,6 +115,10 @@ public class Login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void BotonRegresar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegresar3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonRegresar3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,6 +171,40 @@ public class Login extends javax.swing.JFrame {
         return jButton1;
     }
 
+    public JButton getBotonRegresar3() {
+        return BotonRegresar3;
+    }
+
+    public void setBotonRegresar3(JButton BotonRegresar3) {
+        this.BotonRegresar3 = BotonRegresar3;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JTextArea getjTextArea1() {
+        return jTextArea1;
+    }
+
+    public void setjTextArea1(JTextArea jTextArea1) {
+        this.jTextArea1 = jTextArea1;
+    }
+
+    public JTextField getjTextField1() {
+        return jTextField1;
+    }
+
+    public void setjTextField1(JTextField jTextField1) {
+        this.jTextField1 = jTextField1;
+    }
+    
+    
+
     public void setjButton1(JButton jButton1) {
         this.jButton1 = jButton1;
     }
@@ -160,6 +214,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonRegresar3;
     private javax.swing.JTextField Contraseña;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

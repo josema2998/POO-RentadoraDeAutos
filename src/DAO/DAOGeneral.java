@@ -10,7 +10,7 @@ public abstract class DAOGeneral<T> {
     private String host="localhost:3306";
     private String bd="rentadora_autos";
     private String login="root";
-    private String password="";
+    private String password="root";
     private boolean cargadoDriver;
 
     public DAOGeneral() {
@@ -20,7 +20,7 @@ public abstract class DAOGeneral<T> {
     public void cargarDriver(){
         try {
             if ( !cargadoDriver ) {
-                Class.forName("com.mysql.jdbc.Driver");
+                Class.forName("com.mysql.cj.jdbc.Driver");
                 cargadoDriver = true;
             }
         } catch (Exception e) {

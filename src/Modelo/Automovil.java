@@ -14,9 +14,8 @@ public class Automovil {
     private String Nombre;
     private String Marca;
     private String Placa;
-    private int Id;
-    private int Modelo;
-    private int Puertas;
+    private String Modelo;
+    private String Puertas;
     private int Disponibilidad;
     private double Precio;
 
@@ -33,16 +32,20 @@ public class Automovil {
     }
 
 
-    public int getModelo() {
+    public String getModelo() {
         return Modelo;
     }
 
-    public int getPuertas() {
+    public String getPuertas() {
         return Puertas;
     }
 
-    public int getDisponibilidad() {
-        return Disponibilidad;
+    public boolean getDisponibilidad() {
+        if(Disponibilidad == 1){
+        return true;
+        }else{
+         return false;
+        }
     }
 
     public double getPrecio() {
@@ -62,11 +65,11 @@ public class Automovil {
     }
 
 
-    public void setModelo(int Modelo) {
+    public void setModelo(String Modelo) {
         this.Modelo = Modelo;
     }
 
-    public void setPuertas(int Puertas) {
+    public void setPuertas(String Puertas) {
         this.Puertas = Puertas;
     }
 
@@ -85,7 +88,7 @@ public class Automovil {
     public Automovil(){
     }
     
-    public Automovil( String nombre,String placa, int modelo, int puertas, boolean estado, double precio){
+    public Automovil( String nombre,String placa, String modelo, String puertas, boolean estado, double precio){
         this.Nombre=nombre;
         this.Placa=placa;
         this.Modelo=modelo;
