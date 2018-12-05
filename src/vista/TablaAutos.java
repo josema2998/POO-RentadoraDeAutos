@@ -5,6 +5,8 @@
  */
 package vista;
 
+import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -58,6 +60,8 @@ public class TablaAutos extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("RENTADORA");
+        setIconImage(getIconImage());
 
         TablaAutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -312,6 +316,15 @@ public class TablaAutos extends javax.swing.JFrame {
     public void setTextoDevolver(JTextField textoDevolver) {
         this.textoDevolver = textoDevolver;
     }
+    
+    @Override
+public Image getIconImage() {
+   Image retValue = Toolkit.getDefaultToolkit().
+         getImage(ClassLoader.getSystemResource("resource/icono.png"));
+
+
+   return retValue;
+}
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

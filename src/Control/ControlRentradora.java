@@ -69,7 +69,7 @@ public class ControlRentradora implements ActionListener{
                 vistaAgregar.setVisible(true);
                 vistaLogin.setVisible(false);
             }else{
-                JOptionPane.showMessageDialog(null, "Incorrecto" + ".", "ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Incorrecto" + ".", "ERROR", JOptionPane.WARNING_MESSAGE);
             }
         }
         
@@ -93,9 +93,9 @@ public class ControlRentradora implements ActionListener{
             DAOCoches coche = new DAOCoches();
             try {
                 coche.agregar(automovilModelo);
-                JOptionPane.showMessageDialog(vistaAutos, "Accion correcta, AGREGADO", "Agregado", 0);
+                JOptionPane.showMessageDialog(vistaAutos, "Accion correcta, AGREGADO", "Agregado", JOptionPane.INFORMATION_MESSAGE);
             } catch (SQLException ex) {
-               JOptionPane.showMessageDialog(vistaAutos, "Ocurrio un ERROR NO AGREGADO", "Error", 0);
+               JOptionPane.showMessageDialog(vistaAutos, "Ocurrio un ERROR NO AGREGADO", "Error", JOptionPane.WARNING_MESSAGE);
             }
         }
         //Eliminar de la base de datos
@@ -104,9 +104,9 @@ public class ControlRentradora implements ActionListener{
                 DAOCoches auto = new DAOCoches(); 
             try {
                 auto.eliminar(" placa_coche =" +  "'"+vistaAutos.getTextoEliminar().getText()+"'");
-                JOptionPane.showMessageDialog(vistaAutos, "Accion correcta, ELIMINADO", "ELIMINADO", 0);
+                JOptionPane.showMessageDialog(vistaAutos, "Accion correcta, ELIMINADO", "ELIMINADO", JOptionPane.INFORMATION_MESSAGE);
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(vistaAutos, "Ocurrio un ERROR - NO ELIMINADO", "Error", 0);
+                JOptionPane.showMessageDialog(vistaAutos, "Ocurrio un ERROR - NO ELIMINADO", "Error", JOptionPane.WARNING_MESSAGE);
             }  
         }
         //Rentar en la tabla
@@ -116,9 +116,9 @@ public class ControlRentradora implements ActionListener{
             automovilModelo.setDisponibilidad(false);
             try{
                 auto.modificar(automovilModelo," placa_coche =" +  "'"+vistaAutos.getTextoRentar().getText()+"'");
-                JOptionPane.showMessageDialog(vistaAutos, "Accion correcta, RENTADO", "RENTA", 0);
+                JOptionPane.showMessageDialog(vistaAutos, "Accion correcta, RENTADO", "RENTA", JOptionPane.INFORMATION_MESSAGE);
             }catch (SQLException ex){
-                JOptionPane.showMessageDialog(vistaAutos, "Ocurrio un ERROR - NO PUDO SER MODIFICADO", "Error", 0); 
+                JOptionPane.showMessageDialog(vistaAutos, "Ocurrio un ERROR - NO PUDO SER MODIFICADO", "Error", JOptionPane.INFORMATION_MESSAGE); 
             }
         }
         
@@ -128,9 +128,9 @@ public class ControlRentradora implements ActionListener{
             automovilModelo.setDisponibilidad(true);
             try{
                 auto.modificar(automovilModelo," placa_coche =" +  "'"+vistaAutos.getTextoDevolver().getText()+"'");
-                JOptionPane.showMessageDialog(vistaAutos, "Accion correcta, DEVUELTO", "RENTA", 0);
+                JOptionPane.showMessageDialog(vistaAutos, "Accion correcta, DEVUELTO", "RENTA", JOptionPane.INFORMATION_MESSAGE);
             }catch (SQLException ex){
-                JOptionPane.showMessageDialog(vistaAutos, "Ocurrio un ERROR - NO PUDO SER MODIFICADO", "Error", 0); 
+                JOptionPane.showMessageDialog(vistaAutos, "Ocurrio un ERROR - NO PUDO SER MODIFICADO", "Error", JOptionPane.WARNING_MESSAGE); 
             }
         }
         

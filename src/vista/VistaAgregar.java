@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -46,6 +48,8 @@ public class VistaAgregar extends javax.swing.JFrame {
         BotonRegresar2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("RENTADORA");
+        setIconImage(getIconImage());
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel1.setText("Ingresa los datos del automovil ");
@@ -295,6 +299,15 @@ public class VistaAgregar extends javax.swing.JFrame {
     public void setjLabel6(JLabel jLabel6) {
         this.jLabel6 = jLabel6;
     }
+    
+    @Override
+public Image getIconImage() {
+   Image retValue = Toolkit.getDefaultToolkit().
+         getImage(ClassLoader.getSystemResource("resource/icono.png"));
+
+
+   return retValue;
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Agregar;

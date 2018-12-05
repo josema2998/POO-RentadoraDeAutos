@@ -5,6 +5,8 @@
  */
 package vista;
 
+import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -48,6 +50,8 @@ public class Login extends javax.swing.JFrame {
         jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("RENTADORA");
+        setIconImage(getIconImage());
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setText("Introduce la contraseña");
@@ -104,6 +108,8 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(BotonRegresar3)
                 .addContainerGap())
         );
+
+        getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -212,6 +218,15 @@ public class Login extends javax.swing.JFrame {
     public void setjLabel1(JLabel jLabel1) {
         this.jLabel1 = jLabel1;
     }
+    
+    @Override
+public Image getIconImage() {
+   Image retValue = Toolkit.getDefaultToolkit().
+         getImage(ClassLoader.getSystemResource("resource/icono.png"));
+
+
+   return retValue;
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonRegresar3;

@@ -5,6 +5,8 @@
  */
 package vista;
 
+import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JToggleButton;
 
@@ -36,6 +38,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
         BotonGenerar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("RENTADORA");
+        setIconImage(getIconImage());
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel1.setText("Rentadora de Autos ");
@@ -125,6 +129,15 @@ public class VistaPrincipal extends javax.swing.JFrame {
     public JButton getBotonRentar() {
         return BotonRentar;
     }
+    
+@Override
+public Image getIconImage() {
+   Image retValue = Toolkit.getDefaultToolkit().
+         getImage(ClassLoader.getSystemResource("resource/icono.png"));
+
+
+   return retValue;
+}
 
    
 
