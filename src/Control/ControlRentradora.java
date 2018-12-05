@@ -166,13 +166,23 @@ public class ControlRentradora implements ActionListener{
         //Reporte
         
         if(vistaPrincipal.getBotonGenerar() == e.getSource()){
-            String ruta = "";
+            
+            ArrayList <Automovil> coches = new ArrayList();
+        DAOCoches auto = new DAOCoches(); 
+        try {
+         coches = auto.consultar("estado_coche = 0");
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlRentradora.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            String ruta = "C:\\reporte.txt";
             File archivo = new File(ruta);
             BufferedWriter bw ;
         if(archivo.exists()) {
                 try {
                     bw = new BufferedWriter(new FileWriter(archivo));
-                    bw.write("El fichero de texto ya estaba creado.");
+                    for(int i=0;i<coches.size();i++){
+                    bw.write(coches.get(i).getNombre()+ "   "+coches.get(i).getPlaca() + "   " + coches.get(i).getPrecio() + '\n');
+                    }
                     bw.close();
                 } catch (IOException ex) {
                     Logger.getLogger(ControlRentradora.class.getName()).log(Level.SEVERE, null, ex);
