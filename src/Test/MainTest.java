@@ -9,7 +9,9 @@ import Control.ControlRentradora;
 import DAO.DAOCoches;
 import Modelo.Automovil;
 import java.sql.SQLException;
-import vista.Login;
+import vista.*;
+import Modelo.*;
+import Vista.VistaAgregar;
 
 /**
  *
@@ -30,9 +32,16 @@ public class MainTest {
 //        String condicion = " placa_coche =" + "'yxk-123'" ;
 //       dao.eliminar(condicion);
 
-    Login log = new Login();
-    ControlRentradora control = new ControlRentradora(log);
-    log.setVisible(true);
+        Login vistaLogin = new Login();
+        TablaAutos vistaAutos = new TablaAutos();
+        VistaConfirmacion vistaConfirmacion = new VistaConfirmacion();
+        VistaPrincipal vistaPrincipal = new VistaPrincipal();
+        Automovil automovilModelo = new Automovil();
+        Reporte reporteModelo = new Reporte();
+        VistaAgregar vistaAgregar = new VistaAgregar();
+        
+        ControlRentradora control = new ControlRentradora(vistaLogin,vistaAutos,vistaConfirmacion,vistaPrincipal,automovilModelo,reporteModelo,vistaAgregar);
+        vistaLogin.setVisible(true);
     
     }
     
