@@ -6,6 +6,10 @@ import Vista.VistaAgregar;
 import vista.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -41,6 +45,7 @@ public class ControlRentradora implements ActionListener{
         this.vistaAgregar.getBotonRegresar2().addActionListener(this);
         this.vistaLogin.getBotonRegresar3().addActionListener(this);
         this.vistaAutos.getDevolver().addActionListener(this);
+        this.vistaPrincipal.getBotonGenerar().addActionListener(this);
     }    
 
     public void actionPerformed(ActionEvent e) {
@@ -161,8 +166,32 @@ public class ControlRentradora implements ActionListener{
         //Reporte
         
         if(vistaPrincipal.getBotonGenerar() == e.getSource()){
+            String ruta = "";
+            File archivo = new File(ruta);
+            BufferedWriter bw ;
+        if(archivo.exists()) {
+                try {
+                    bw = new BufferedWriter(new FileWriter(archivo));
+                    bw.write("El fichero de texto ya estaba creado.");
+                    bw.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(ControlRentradora.class.getName()).log(Level.SEVERE, null, ex);
+                }
             
+        } else {
+                try {
+                    bw = new BufferedWriter(new FileWriter(archivo));
+                     bw.write("Acabo de crear el fichero de texto.");
+                     bw.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(ControlRentradora.class.getName()).log(Level.SEVERE, null, ex);
+                }
+           
         }
+        
+    }
+            
+        
         
         
         //Botones regresar
