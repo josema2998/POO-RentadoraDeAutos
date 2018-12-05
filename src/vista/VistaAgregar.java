@@ -155,6 +155,7 @@ public class VistaAgregar extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void TextoPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextoPrecioActionPerformed

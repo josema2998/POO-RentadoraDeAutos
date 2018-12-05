@@ -176,6 +176,7 @@ public class TablaAutos extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void TablaAutosComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_TablaAutosComponentAdded

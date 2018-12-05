@@ -21,6 +21,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
      */
     public VistaPrincipal() {
         initComponents();
+        
     }
 
     /**
@@ -81,6 +82,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -138,6 +140,7 @@ public Image getIconImage() {
 
    return retValue;
 }
+
 
    
 
