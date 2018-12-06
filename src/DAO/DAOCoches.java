@@ -59,8 +59,8 @@ public class DAOCoches extends DAOGeneral<Automovil>{
         ArrayList<Automovil> lista = new ArrayList<Automovil>();
         Automovil e;
         Connection con = getConeccion();
-        String orden = "SELECT * FROM Coches " +
-                (condicion==null || condicion.length()==0 ? "":"WHERE " + condicion);
+        String orden = "SELECT * FROM Coches " ;
+                //(condicion==null || condicion.length()==0 ? "":"WHERE " + condicion);
         Statement sentencia = con.createStatement();
         ResultSet rs = sentencia.executeQuery( orden );
         while (rs.next()) {

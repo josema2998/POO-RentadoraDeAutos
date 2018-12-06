@@ -75,27 +75,46 @@ public class ControlRentradora implements ActionListener{
         
         if(vistaAgregar.getAgregar() == e.getSource()){
              vistaLogin.setVisible(true);
-            String Nombre,Placa,Modelo,Puertas;
-            double Precio;
+            String Nombre,Placa;
+            int Modelo = 0,Puertas=0;
+            double Precio=0;
+            boolean valido=true;
             Nombre = vistaAgregar.getTextoNombre().getText();
             Placa = vistaAgregar.getTextoPlaca().getText();
-            Modelo = vistaAgregar.getTextoModelo().getText();
-            Puertas = vistaAgregar.getTextoPuertas().getText();
-            Precio = Double.parseDouble(vistaAgregar.getTextoPrecio().getText());
+            try{
+             Modelo = Integer.parseInt(vistaAgregar.getTextoModelo().getText());
+            }catch(NumberFormatException x){
+                valido = false;
+            }
+            try{
+             Puertas = Integer.parseInt(vistaAgregar.getTextoPuertas().getText());
+            }catch(NumberFormatException y){
+                valido = false;
+            }
             
+            try{
+             Precio = Double.parseDouble(vistaAgregar.getTextoPrecio().getText());
+            }catch(NumberFormatException y){
+                valido = false;
+            }
+           
             automovilModelo.setNombre(Nombre);
             automovilModelo.setPlaca(Placa);
-            automovilModelo.setModelo(Modelo);
-            automovilModelo.setPuertas(Puertas);
+            automovilModelo.setModelo(String.valueOf(Modelo));
+            automovilModelo.setPuertas(String.valueOf(Puertas));
             automovilModelo.setDisponibilidad(true);
             automovilModelo.setPrecio(Precio);
             
             DAOCoches coche = new DAOCoches();
-            try {
-                coche.agregar(automovilModelo);
-                JOptionPane.showMessageDialog(vistaAutos, "Accion correcta, AGREGADO", "Agregado", JOptionPane.INFORMATION_MESSAGE);
-            } catch (SQLException ex) {
-               JOptionPane.showMessageDialog(vistaAutos, "Ocurrio un ERROR NO AGREGADO", "Error", JOptionPane.WARNING_MESSAGE);
+            if(valido == true){
+                try {
+                    coche.agregar(automovilModelo);
+                    JOptionPane.showMessageDialog(vistaAutos, "Accion correcta, AGREGADO", "Agregado", JOptionPane.INFORMATION_MESSAGE);
+                } catch (SQLException ex) {
+                   JOptionPane.showMessageDialog(vistaAutos, "Ocurrio un ERROR NO AGREGADO", "Error", JOptionPane.WARNING_MESSAGE);
+                }
+            }else{
+                JOptionPane.showMessageDialog(vistaAutos, "Datos No Validos", "Error", JOptionPane.WARNING_MESSAGE);
             }
         }
         //Eliminar de la base de datos
@@ -145,7 +164,7 @@ public class ControlRentradora implements ActionListener{
         try {
          coches = auto.consultar("estado_coche = 1");
         } catch (SQLException ex) {
-            Logger.getLogger(ControlRentradora.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(vistaAutos, "Ocurrio un ERROR - NO SE PUDO ACCEDER A LA BASE DE DATOS", "Error", JOptionPane.WARNING_MESSAGE);
         }
 
         
