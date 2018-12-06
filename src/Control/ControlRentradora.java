@@ -26,6 +26,8 @@ public class ControlRentradora implements ActionListener{
     private TablaAutos vistaAutos;
     private VistaPrincipal vistaPrincipal;
     private VistaAgregar vistaAgregar;
+    ArrayList <Automovil> coches = new ArrayList();
+    DAOCoches auto = new DAOCoches(); 
     
     public ControlRentradora(Login vistaLogin, TablaAutos vistaAutos, VistaPrincipal vistaPrincipal, Automovil automovilModelo, Reporte reporteModelo, VistaAgregar vistaAgregar) {
         this.automovilModelo = automovilModelo;
@@ -123,6 +125,20 @@ public class ControlRentradora implements ActionListener{
                 DAOCoches auto = new DAOCoches(); 
             try {
                 auto.eliminar(" placa_coche =" +  "'"+vistaAutos.getTextoEliminar().getText()+"'");
+                try {
+                     coches = auto.consultar("estado_coche = 1");
+                    } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(vistaAutos, "Ocurrio un ERROR - NO SE PUDO ACCEDER A LA BASE DE DATOS", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+            for (int i=0; i< coches.size(); i++ ){
+                vistaAutos.getTablaAutos().setValueAt(coches.get(i).getNombre(), i, 0);
+                vistaAutos.getTablaAutos().setValueAt(coches.get(i).getPlaca(), i, 1);
+                vistaAutos.getTablaAutos().setValueAt(coches.get(i).getModelo(), i, 2);
+                vistaAutos.getTablaAutos().setValueAt(coches.get(i).getPuertas(), i, 3);
+                vistaAutos.getTablaAutos().setValueAt(coches.get(i).getDisponibilidad(), i, 4);
+                vistaAutos.getTablaAutos().setValueAt(coches.get(i).getPrecio(), i, 5);
+            
+            }
                 JOptionPane.showMessageDialog(vistaAutos, "Accion correcta, ELIMINADO", "ELIMINADO", JOptionPane.INFORMATION_MESSAGE);
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(vistaAutos, "Ocurrio un ERROR - NO ELIMINADO", "Error", JOptionPane.WARNING_MESSAGE);
@@ -135,6 +151,21 @@ public class ControlRentradora implements ActionListener{
             automovilModelo.setDisponibilidad(false);
             try{
                 auto.modificar(automovilModelo," placa_coche =" +  "'"+vistaAutos.getTextoRentar().getText()+"'");
+                try {
+                    coches = auto.consultar("estado_coche = 1");
+                } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(vistaAutos, "Ocurrio un ERROR - NO SE PUDO ACCEDER A LA BASE DE DATOS", "Error", JOptionPane.WARNING_MESSAGE);
+        }
+
+        
+            for (int i=0; i< coches.size(); i++ ){
+                vistaAutos.getTablaAutos().setValueAt(coches.get(i).getNombre(), i, 0);
+                vistaAutos.getTablaAutos().setValueAt(coches.get(i).getPlaca(), i, 1);
+                vistaAutos.getTablaAutos().setValueAt(coches.get(i).getModelo(), i, 2);
+                vistaAutos.getTablaAutos().setValueAt(coches.get(i).getPuertas(), i, 3);
+                vistaAutos.getTablaAutos().setValueAt(coches.get(i).getDisponibilidad(), i, 4);
+                vistaAutos.getTablaAutos().setValueAt(coches.get(i).getPrecio(), i, 5);
+            }
                 JOptionPane.showMessageDialog(vistaAutos, "Accion correcta, RENTADO", "RENTA", JOptionPane.INFORMATION_MESSAGE);
             }catch (SQLException ex){
                 JOptionPane.showMessageDialog(vistaAutos, "Ocurrio un ERROR - NO PUDO SER MODIFICADO", "Error", JOptionPane.INFORMATION_MESSAGE); 
@@ -147,6 +178,22 @@ public class ControlRentradora implements ActionListener{
             automovilModelo.setDisponibilidad(true);
             try{
                 auto.modificar(automovilModelo," placa_coche =" +  "'"+vistaAutos.getTextoDevolver().getText()+"'");
+                try {
+         coches = auto.consultar("estado_coche = 1");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(vistaAutos, "Ocurrio un ERROR - NO SE PUDO ACCEDER A LA BASE DE DATOS", "Error", JOptionPane.WARNING_MESSAGE);
+        }
+
+        
+        for (int i=0; i< coches.size(); i++ ){
+            vistaAutos.getTablaAutos().setValueAt(coches.get(i).getNombre(), i, 0);
+            vistaAutos.getTablaAutos().setValueAt(coches.get(i).getPlaca(), i, 1);
+            vistaAutos.getTablaAutos().setValueAt(coches.get(i).getModelo(), i, 2);
+            vistaAutos.getTablaAutos().setValueAt(coches.get(i).getPuertas(), i, 3);
+            vistaAutos.getTablaAutos().setValueAt(coches.get(i).getDisponibilidad(), i, 4);
+            vistaAutos.getTablaAutos().setValueAt(coches.get(i).getPrecio(), i, 5);
+            
+        }
                 JOptionPane.showMessageDialog(vistaAutos, "Accion correcta, DEVUELTO", "RENTA", JOptionPane.INFORMATION_MESSAGE);
             }catch (SQLException ex){
                 JOptionPane.showMessageDialog(vistaAutos, "Ocurrio un ERROR - NO PUDO SER MODIFICADO", "Error", JOptionPane.WARNING_MESSAGE); 
@@ -159,8 +206,7 @@ public class ControlRentradora implements ActionListener{
             vistaAutos.setVisible(true);
             vistaPrincipal.setVisible(false);
                //tabla 
-        ArrayList <Automovil> coches = new ArrayList();
-        DAOCoches auto = new DAOCoches(); 
+        
         try {
          coches = auto.consultar("estado_coche = 1");
         } catch (SQLException ex) {
